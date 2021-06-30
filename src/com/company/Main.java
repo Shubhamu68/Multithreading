@@ -12,7 +12,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Please choose the topic..!!!");
-        System.out.println("1. Multithreading Demo.\n2. Thread Interruption Concepts.");
+        System.out.println("1. Multithreading Demo.\n2. Thread Interruption Concepts.\n3. Thread Joining Concept");
         int choice = sc.nextInt();
         Thread t;
         switch (choice) {
@@ -29,7 +29,6 @@ public class Main {
             case 3:
                 t= new Thread(new ThreadJoiningConcept());
                 t.start();
-                t.interrupt();
                 break;
         }
     }
