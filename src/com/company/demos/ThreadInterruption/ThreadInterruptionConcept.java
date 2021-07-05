@@ -32,7 +32,7 @@ public class ThreadInterruptionConcept implements Runnable{
         try {
             Thread.sleep(200000000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Sleep is interrupted. THread is going to exit.!!");
         }
     }
 }

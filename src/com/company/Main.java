@@ -22,7 +22,9 @@ public class Main {
                 t.start();
                 break;
             case 2:
-                t = new Thread(new ThreadInterruptionConcept(2));
+                System.out.println("Enter task to be executed - 1 or 2.");
+                choice  = sc.nextInt();
+                t = new Thread(new ThreadInterruptionConcept(choice));
                 t.start();
                 t.interrupt();
                 break;
