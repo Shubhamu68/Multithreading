@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Please choose the topic..!!!");
@@ -30,7 +30,9 @@ public class Main {
                 break;
             case 3:
                 t= new Thread(new ThreadJoiningConcept());
+                System.out.println("Current thread in execution is : " + Thread.currentThread().getName());
                 t.start();
+                t.join();
                 break;
         }
     }

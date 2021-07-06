@@ -16,9 +16,10 @@ public class ThreadJoiningConcept implements Runnable {
     }
 
     private void calculateFactorial() throws InterruptedException {
+        //      calculate factorials of below integers
         List<Long> li = Arrays.asList(1212122L,5L,10L,20L,500L);
+        //      each factorial will be calculated in a new thread
         List<FactorialCalculator> threads = new ArrayList<>();
-        //      creating separate thread for each case
         for(Long l: li){
             threads.add(new FactorialCalculator(l));
         }
@@ -30,9 +31,12 @@ public class ThreadJoiningConcept implements Runnable {
             t.start();
         }
 
-        //  to ensure that all the factorial threads will finish their execution by the time main thread finishes below loop
+        System.out.println("Current thread which is executing is " + Thread.currentThread().getName());
+        System.out.println("This thread will wait a max of 5 seconds for each number's factorial calculation.");
         for(Thread t: threads){
             //  to ensure a max time of 5 seconds for any factorial calculation...else will proceed with next calculation
+            //  if used without line - "t.setDaemon(true);" and 5 seconds has passed, next instruction will start to execute
+            //  but the thread will keep running in background and will prevent the application from shutting down.
             t.join(5000);
         }
 
@@ -42,7 +46,7 @@ public class ThreadJoiningConcept implements Runnable {
             if(factorialCalculator.isCompleted()){
                 System.out.println("Factorial of " + li.get(i) + " is " + factorialCalculator.getResult());
             }else{
-                System.out.println("Calculation for " + li.get(i) + " is still in progress..!!!");
+                System.err.println("Calculation for " + li.get(i) + " is taking more time than allowed.. Exiting !!!");
             }
         }
     }
