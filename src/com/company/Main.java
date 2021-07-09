@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.demos.ImageProcessingImplementation;
 import com.company.demos.MultithreadingDemo.MultithreadingDemo;
 import com.company.demos.ThreadInterruption.ThreadInterruptionConcept;
 import com.company.demos.ThreadJoiningConcept;
@@ -12,7 +13,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Please choose the topic..!!!");
-        System.out.println("1. Multithreading Demo.\n2. Thread Interruption Concepts.\n3. Thread Joining Concept");
+        System.out.println("1. Multithreading Demo.\n2. Thread Interruption Concepts.\n3. Thread Joining Concept" +
+                "\n4. ImageProcessing - Single vs Multiple Threads");
         int choice = sc.nextInt();
         Thread t;
         switch (choice) {
@@ -33,6 +35,10 @@ public class Main {
                 System.out.println("Current thread in execution is : " + Thread.currentThread().getName());
                 t.start();
                 t.join();
+                break;
+            case 4:
+                t = new Thread(new ImageProcessingImplementation());
+                t.start();
                 break;
         }
     }
