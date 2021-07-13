@@ -24,7 +24,7 @@ public class ImageProcessingImplementation implements Runnable {
         BufferedImage resultImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number of threads you want to be executed in parallel for the image to process...!!!");
+        System.out.println("Enter the number of threads you want to be executed in parallel for the image to process..!!");
         int numberOfThreads = sc.nextInt();
         long startTime = System.currentTimeMillis();
         recolorMultithreaded(originalImage, resultImage, numberOfThreads);
