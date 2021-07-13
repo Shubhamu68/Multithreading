@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ImageProcessingImplementation implements Runnable {
 
@@ -22,9 +23,10 @@ public class ImageProcessingImplementation implements Runnable {
         }
         BufferedImage resultImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of threads you want to be executed in parallel for the image to process...!!!");
+        int numberOfThreads = sc.nextInt();
         long startTime = System.currentTimeMillis();
-        //recolorSingleThreaded(originalImage, resultImage);
-        int numberOfThreads = 1;
         recolorMultithreaded(originalImage, resultImage, numberOfThreads);
         long endTime = System.currentTimeMillis();
 
